@@ -7,7 +7,8 @@ let f=document.querySelector("#game");
 let newGame=document.querySelector("#new");
 let player1=document.querySelector("#p1");
 let player2=document.querySelector("#p2");
-let count=0;
+let count1=0;
+let count2=0;
 let turnO=true;
 const winpt=[
     [0,1,2],
@@ -25,7 +26,6 @@ const resetGame=()=>{
     enableBoxes();
     message.classList.add("hide");
 }
-
 boxes.forEach((box)=>{
     box.addEventListener("click",()=>{
         if(turnO){
@@ -54,14 +54,19 @@ const enableBoxes=()=>{
 
     }
 }
-
 const showWinner=(win)=>{
     msg.innerText=`Congratulations Winner is '${win}'`;
-    reset.disabled=true;
     message.classList.remove("hide");
     disableBoxes();
-      win==='O'?p1.innerText=count+1:p2.innerText=count+1;
-    
+    if(win==='O'){
+        count1++;
+        player1.innerText=count1;
+    }
+    else{
+        count2++;
+        player2.innerText=count2;
+    }
+    reset.disabled=true;
     
 };
 
@@ -85,8 +90,10 @@ const winner=()=>{
 reset.addEventListener("click",resetGame);
 playAgain.addEventListener("click",resetGame);
 newGame.addEventListener("click",()=>{
-    p1.innerText=count;
-    p2.innerText=count;
+    count1=0;
+    count2=0;
+    p1.innerText=count1;
+    p2.innerText=count2;
 });
 newGame.addEventListener("click",resetGame);
 
