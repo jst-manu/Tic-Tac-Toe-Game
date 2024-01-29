@@ -102,15 +102,20 @@ main{
     display: flex;
     position: absolute;
     left: 66px;
-    top: 36px;
+    top: 56px;
     gap: 26px;
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 1rem;
+    border:3px solid white;
 }
 p{
     margin-top: 10px;
 }
 .line{
-    border: 3px solid black;
-    height: 40vh;
+    border: 3px solid rgb(241, 238, 238);
+    
 }
 .hov:hover{
     transform: scale(0.9);
